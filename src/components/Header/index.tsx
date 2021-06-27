@@ -1,37 +1,29 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import Container from './styles';
 
 import Logo from '../../assets/logo.png';
 import CartIcon from '../../assets/cart-icon.svg';
 import ArrowDown from '../../assets/arrow-down-icon.svg';
 
-interface IHeaderProps {
-  handleSortBy: (sortBy: string) => void;
-}
-
-const Header: React.FC<IHeaderProps> = ({ handleSortBy }: IHeaderProps) => (
+const Header: React.FC = () => (
   <Container>
     <header>
-      <img src={Logo} alt="Game Store" />
-      <div>
-        Sort:
-        <select onChange={e => handleSortBy(e.target.value)}>
-          <option value="title">Title</option>
-          <option value="price">Price</option>
-          <option value="score">Score</option>
-        </select>
-      </div>
+      <Link to="/" title="Home">
+        <img src={Logo} alt="Game Store" />
+      </Link>
       <nav>
         <div>
-          <button type="button">
-            <div className="text">
-              <img src={CartIcon} alt="Cart" />
-            </div>
-            <div className="icon">
-              <img src={ArrowDown} alt="Cart" />
-            </div>
-          </button>
+          <Link to="/cart" title="Cart">
+            <button type="button">
+              <div className="text">
+                <img src={CartIcon} alt="Cart" />
+              </div>
+              <div className="icon">
+                <img src={ArrowDown} alt="Cart" />
+              </div>
+            </button>
+          </Link>
         </div>
       </nav>
     </header>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const GamesContainer = styled.div`
+const CartContainer = styled.div`
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -9,8 +9,9 @@ const GamesContainer = styled.div`
 
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 32px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 5px;
+  color: #0f0f0f;
 `;
 
-export default GamesContainer;
+export default CartContainer;

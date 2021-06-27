@@ -56,7 +56,7 @@ const Container = styled.div<IFoodPlateProps>`
 
   section.footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
 
     padding: 20px 30px;

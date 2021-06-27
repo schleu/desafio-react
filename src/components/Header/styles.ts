@@ -14,20 +14,7 @@ const Container = styled.div`
     img {
       width: 150px;
     }
-    div {
-      max-width: 300px;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
 
-      select {
-        width: 100%;
-        height: 40px;
-        border: none;
-        border-radius: 5px;
-        padding: 5px 10px;
-      }
-    }
     nav {
       div {
         button {

@@ -1,11 +1,11 @@
 interface IGames {
   id: number;
   name: string;
-  price: string;
+  price: number;
   score: number;
   image: string;
 }
-const sortMyArray = (sortBy: string, Games: IGames[]): IGames[] => {
+const sortGames = (sortBy: string, Games: IGames[]): IGames[] => {
   let SortedGames: IGames[] = [];
 
   if (sortBy === 'title') {
@@ -23,4 +23,4 @@ const sortMyArray = (sortBy: string, Games: IGames[]): IGames[] => {
   return SortedGames;
 };
 
-export default sortMyArray;
+export default sortGames;

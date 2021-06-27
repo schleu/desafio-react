@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiStar } from 'react-icons/fi';
+import { FiTrash } from 'react-icons/fi';
+import formatValue from '../../utils/formatValue';
 import Container from './styles';
 
 // import api from '../../services/api';
@@ -7,45 +8,37 @@ import Container from './styles';
 interface IGame {
   id: number;
   name: string;
-  price: string;
+  price: number;
   score: number;
   image: string;
 }
 
 interface IProps {
   game: IGame;
-  handleAddGameToCart: (game: IGame) => void;
-  handleRemoveGameToCart: (game: IGame) => void;
+  handleRemoveGameToCart: (id: number) => void;
 }
 
-const Cart: React.FC<IProps> = ({
-  game,
-  handleAddGameToCart,
-  handleRemoveGameToCart,
-}: IProps) => {
+const Cart: React.FC<IProps> = ({ game, handleRemoveGameToCart }: IProps) => {
   return (
-    <Container available>
-      <header>
-        <img src={`/assets/${game.image}`} alt={game.name} />
-      </header>
-      <section className="body">
+    <Container>
+      <div className="name">
         <h2>{game.name}</h2>
-        <p className="price">
-          R$ <b>{game.price}</b>
+      </div>
+
+      <div className="price">
+        <p>
+          <b>{formatValue(game.price)}</b>
         </p>
-      </section>
-      <section className="footer">
-        <div className="icon-container">
-          <button
-            type="button"
-            className="icon"
-            // onClick={() => setGameToCart()}
-            // data-testid={`remove-food-${food.id}`}
-          >
-            Comprar
-          </button>
-        </div>
-      </section>
+      </div>
+
+      <button
+        type="button"
+        className="icon"
+        onClick={() => handleRemoveGameToCart(game.id)}
+        // data-testid={`remove-food-${food.id}`}
+      >
+        <FiTrash size={20} />
+      </button>
     </Container>
   );
 };

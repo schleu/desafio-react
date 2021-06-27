@@ -1,5 +1,6 @@
 import React from 'react';
-import { FiStar } from 'react-icons/fi';
+import { FiStar, FiShoppingCart } from 'react-icons/fi';
+import formatValue from '../../utils/formatValue';
 import Container from './styles';
 
 // import api from '../../services/api';
@@ -7,7 +8,7 @@ import Container from './styles';
 interface IGame {
   id: number;
   name: string;
-  price: string;
+  price: number;
   score: number;
   image: string;
 }
@@ -36,7 +37,7 @@ const Game: React.FC<IProps> = ({ game, handleAddGameToCart }: IProps) => {
           <FiStar size={12} />
         </p>
         <p className="price">
-          R$ <b>{game.price}</b>
+          <b>{formatValue(game.price)}</b>
         </p>
       </section>
       <section className="footer">
@@ -47,7 +48,7 @@ const Game: React.FC<IProps> = ({ game, handleAddGameToCart }: IProps) => {
             // onClick={() => setGameToCart()}
             // data-testid={`remove-food-${food.id}`}
           >
-            Comprar
+            Buy
           </button>
         </div>
       </section>
