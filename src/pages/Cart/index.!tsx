@@ -1,0 +1,38 @@
+import React, { useEffect, useState } from 'react';
+
+import Header from '../../components/Header';
+
+import api from '../../services/api';
+
+import Game from '../../components/Game';
+
+import GamesContainer from './styles';
+
+interface IProduct {
+  id: number;
+  name: string;
+  price: string;
+  score: number;
+  image: string;
+}
+
+interface ICart {
+  products: IProduct[];
+  shipping: string;
+}
+
+const Cart: React.FC = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  function toggleModal(): void {
+    setModalOpen(!modalOpen);
+  }
+
+  return (
+    <>
+      <Header />
+    </>
+  );
+};
+
+export default Cart;
