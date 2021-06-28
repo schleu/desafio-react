@@ -5,7 +5,7 @@ const Container = styled.div`
   justify-content: center;
   background: #c3c3c3;
   padding: 30px 0;
-  margin: -300px auto 150px;
+  margin: -200px auto 100px;
 
   div {
     max-width: 300px;

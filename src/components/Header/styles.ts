@@ -11,27 +11,43 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img {
-      width: 150px;
+    .Logo {
+      font-size: 30px;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #1f1f1f;
+        img {
+          width: 50px;
+          padding-right: 10px;
+        }
+      }
     }
 
     nav {
       div {
-        button {
-          font-weight: 600;
-          border-radius: 8px;
-          border: 0;
-          background: #303030;
-          color: #fff;
+        font-weight: 600;
+        border-radius: 8px;
+        border: 0;
+        background: transparent;
+        color: #1f1f1f;
 
+        a {
           display: flex;
+          justify-content: space-between;
           flex-direction: row;
           align-items: center;
 
           .text {
-            padding: 16px 24px;
+            display: block;
             img {
-              width: 40px;
+              width: 25px;
+              color: red;
+            }
+            span {
+              position: absolute;
+              top: 20px;
             }
           }
 
@@ -40,10 +56,9 @@ const Container = styled.div`
             padding: 16px 16px;
             border-radius: 0 8px 8px 0;
             margin: 0 auto;
-            color: #fff;
 
             img {
-              width: 20px;
+              width: 15px;
             }
           }
         }

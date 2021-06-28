@@ -13,15 +13,9 @@ interface IGame {
   image: string;
 }
 
-interface ICart {
-  products: IGame[];
-  priceTotal: string;
-  shipping: string;
-}
-
 interface IProps {
   game: IGame;
-  handleAddGameToCart: (cart: ICart) => void;
+  handleAddGameToCart: (game: IGame) => void;
 }
 
 const Game: React.FC<IProps> = ({ game, handleAddGameToCart }: IProps) => {
@@ -45,7 +39,7 @@ const Game: React.FC<IProps> = ({ game, handleAddGameToCart }: IProps) => {
           <button
             type="button"
             className="icon"
-            // onClick={() => setGameToCart()}
+            onClick={() => handleAddGameToCart(game)}
             // data-testid={`remove-food-${food.id}`}
           >
             Buy

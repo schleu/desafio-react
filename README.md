@@ -50,5 +50,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 O desafio consiste em construir a interface de um ecommerce de games utilizando ReactJs.
 
 ## Requisitos
-·  O usuário poderá adicionar e <!-- remover --> produtos do carrinho
-
+·  O usuário poderá adicionar e remover produtos do carrinho

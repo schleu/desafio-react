@@ -16,8 +16,13 @@ interface IGame {
   image: string;
 }
 
+interface ICart {
+  id: number;
+  game: IGame;
+}
+
 const CartView: React.FC = () => {
-  const [carts, setCarts] = useState<IGame[]>([]);
+  const [carts, setCarts] = useState<ICart[]>([]);
   const [totalCart, setTotalCart] = useState<number>(0);
   const [totalExtra, setTotalExtra] = useState<number>(0);
   const [subtotalCart, setSubTotalCart] = useState<number>(0);
@@ -34,47 +39,54 @@ const CartView: React.FC = () => {
   useEffect(() => {
     async function loadValues(): Promise<void> {
       const valorParcial = carts.reduce((acc, cart) => {
-        return acc + cart.price;
+        return acc + cart.game.price;
       }, 0);
-
       setSubTotalCart(valorParcial);
-
       if (valorParcial > 250) {
         setTotalExtra(0);
       } else {
         setTotalExtra(carts.length * 10);
       }
-
       setTotalCart(valorParcial + totalExtra);
     }
     loadValues();
   }, [carts]);
 
-  function handleAddGameToCart(game: IGame): void {
-    setCarts([...carts, game]);
-  }
-
-  function handleRemoveGameToCart(id: number): void {
-    setCarts(carts.filter(game => game.id !== id));
+  async function handleRemoveGameToCart(id: number): Promise<void> {
+    try {
+      await api.delete(`/carts/${id}`);
+      setCarts(carts.filter(game => game.id !== id));
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
     <>
-      <Header />
+      <Header cartItens={carts.length} />
       <CartContainer data-testid="cart-list">
         {carts &&
           carts.map(cart => (
             <Cart
               key={cart.id}
-              game={cart}
+              cart={cart}
               handleRemoveGameToCart={handleRemoveGameToCart}
             />
           ))}
-        <div className="subtotalCart">
-          Sub-Total:{formatValue(subtotalCart)}
+        <div className="totaisCart">
+          <div className="subtotalCart">
+            <span>Sub-Total:</span>
+            {formatValue(subtotalCart)}
+          </div>
+          <div className="totalExtra">
+            <span>Shipping:</span>
+            {formatValue(totalExtra)}
+          </div>
+          <div className="totalCart">
+            <span>Total:</span>
+            {formatValue(totalCart)}
+          </div>
         </div>
-        <div className="totalExtra">Shipping:{formatValue(totalExtra)}</div>
-        <div className="totalCart">Total:{formatValue(totalCart)}</div>
       </CartContainer>
     </>
   );

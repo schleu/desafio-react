@@ -7,6 +7,8 @@ interface IFoodPlateProps {
 const Container = styled.div<IFoodPlateProps>`
   background: #f0f0f5;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
 
   header {
     background: #fff;
@@ -31,7 +33,7 @@ const Container = styled.div<IFoodPlateProps>`
 
   section.body {
     padding: 30px;
-
+    margin-right: auto;
     h2 {
       color: #3d3d4d;
     }
@@ -67,7 +69,9 @@ const Container = styled.div<IFoodPlateProps>`
       display: flex;
 
       button {
-        background: #fff;
+        width: 100%;
+        height: 100%;
+        background: transparent;
         padding: 10px;
         border-radius: 8px;
         display: flex;

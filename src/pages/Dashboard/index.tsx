@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { throws } from 'assert';
 import api from '../../services/api';
 
 import Header from '../../components/Header';
@@ -18,14 +19,9 @@ interface IGame {
   image: string;
 }
 
-interface ICart {
-  products: IGame[];
-  shipping: string;
-}
-
 const Dashboard: React.FC = () => {
   const [games, setGames] = useState<IGame[]>([]);
-
+  const [carts, setCarts] = useState<IGame[]>([]);
   const [sortBy, setSortBy] = useState('title');
 
   useEffect(() => {
@@ -39,8 +35,24 @@ const Dashboard: React.FC = () => {
     loadProducts();
   }, [sortBy]);
 
-  function handleAddGameToCart(cart: ICart): void {
-    //
+  useEffect(() => {
+    async function loadCarts(): Promise<void> {
+      const response = await api.get('/carts');
+
+      setCarts(response.data);
+    }
+    loadCarts();
+  }, []);
+
+  async function handleAddGameToCart(game: IGame): Promise<void> {
+    try {
+      const response = await api.post(`/carts`, {
+        game,
+      });
+      setCarts([...carts, response.data]);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function handleSortBy(sort: string): void {
@@ -49,7 +61,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Header cartItens={carts.length} />
       <SortSelect handleSortBy={handleSortBy} />
       <GamesContainer data-testid="games-list">
         {games &&
