@@ -5,16 +5,17 @@ interface IFoodPlateProps {
 }
 
 const Container = styled.div<IFoodPlateProps>`
+  width: 100%;
   background: #f0f0f5;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
 
   header {
     background: #fff;
     border: solid 1px #f0f0f5;
     border-radius: 8px 8px 0px 0px;
-    height: 192px;
     overflow: hidden;
     transition: 0.3s opacity;
     text-align: center;
@@ -60,11 +61,13 @@ const Container = styled.div<IFoodPlateProps>`
     display: flex;
     justify-content: left;
     align-items: center;
-
     padding: 20px 30px;
     background: #e4e4eb;
-    border-radius: 0px 0px 8px 8px;
-
+    border-radius: 0px 8px 8px 0px;
+    transition: background 0.3s;
+    &:hover {
+      background: #d3d3d6;
+    }
     div.icon-container {
       display: flex;
 
@@ -76,7 +79,6 @@ const Container = styled.div<IFoodPlateProps>`
         border-radius: 8px;
         display: flex;
         border: none;
-        transition: 0.1s;
 
         svg {
           color: #3d3d4d;
@@ -86,6 +88,30 @@ const Container = styled.div<IFoodPlateProps>`
           margin-left: 6px;
         }
       }
+    }
+  }
+
+  //Smartphone
+  @media screen and (max-width: 670px) {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    header {
+      width: 100%;
+      margin: 10px;
+    }
+
+    section.body {
+      padding: 30px;
+      margin-right: auto;
+    }
+
+    section.footer {
+      width: 100%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      border-radius: 8px 8px 8px 8px;
     }
   }
 `;

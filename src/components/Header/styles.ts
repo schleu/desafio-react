@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   background: #c3c3c3;
-  padding: 30px 0;
+  padding: 30px 20px;
 
   header {
-    width: 1280px;
+    max-width: 1280px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 0 160px;
     display: flex;

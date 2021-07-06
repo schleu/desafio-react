@@ -1,9 +1,7 @@
 import React from 'react';
-import { FiStar, FiShoppingCart } from 'react-icons/fi';
+import { FiStar } from 'react-icons/fi';
 import formatValue from '../../utils/formatValue';
 import Container from './styles';
-
-// import api from '../../services/api';
 
 interface IGame {
   id: number;
@@ -40,7 +38,7 @@ const Game: React.FC<IProps> = ({ game, handleAddGameToCart }: IProps) => {
             type="button"
             className="icon"
             onClick={() => handleAddGameToCart(game)}
-            // data-testid={`remove-food-${food.id}`}
+            data-testid={`add-game-${game.id}`}
           >
             Buy
           </button>

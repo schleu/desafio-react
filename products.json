@@ -73,37 +73,17 @@
         "score": 80,
         "image": "call-of-duty-infinite-warfare.png"
       },
-      "id": 12
+      "id": 1
     },
     {
       "game": {
-        "id": 201,
-        "name": "Call Of Duty Infinite Warfare",
-        "price": 49.99,
-        "score": 80,
-        "image": "call-of-duty-infinite-warfare.png"
+        "id": 99,
+        "name": "Call Of Duty WWII",
+        "price": 249.99,
+        "score": 205,
+        "image": "call-of-duty-wwii.png"
       },
-      "id": 13
-    },
-    {
-      "game": {
-        "id": 201,
-        "name": "Call Of Duty Infinite Warfare",
-        "price": 49.99,
-        "score": 80,
-        "image": "call-of-duty-infinite-warfare.png"
-      },
-      "id": 14
-    },
-    {
-      "game": {
-        "id": 201,
-        "name": "Call Of Duty Infinite Warfare",
-        "price": 49.99,
-        "score": 80,
-        "image": "call-of-duty-infinite-warfare.png"
-      },
-      "id": 15
+      "id": 2
     }
   ]
 }

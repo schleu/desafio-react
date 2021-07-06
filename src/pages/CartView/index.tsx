@@ -42,9 +42,7 @@ const CartView: React.FC = () => {
         return acc + cart.game.price;
       }, 0);
       setSubTotalCart(valorParcial);
-      if (valorParcial > 250) {
-        setTotalExtra(0);
-      } else {
+      if (valorParcial < 250) {
         setTotalExtra(carts.length * 10);
       }
       setTotalCart(valorParcial + totalExtra);
